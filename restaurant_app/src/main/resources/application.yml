@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: The_Real_Restaurant_App
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/restaurantDB
+    username: admin
+    password: Start!@#
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+#Jwt Key
+jwt_secret_key: VGhpcyBpcyBhIHNhbXBsZSBzZWNyZXQga2V5IHRoYXQgaXMgdmFsaWQgYW5kIGF0IGxlYXN0IDI1NiBiaXRzIGxvbmcu

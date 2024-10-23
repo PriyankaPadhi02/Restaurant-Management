@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+  postgres:
+    container_name: my-restaurant-app-container
+    image: postgres:14.5-alpine
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: Start!@#
+      POSTGRES_DB: restaurantDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/data/postgres
+    restart: unless-stopped
+volumes:
+  postgres:
