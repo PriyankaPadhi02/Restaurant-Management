@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
   FLUSH,
@@ -8,14 +9,21 @@ import {
   REHYDRATE,
   persistReducer,
 } from "redux-persist";
+import persistStore from "redux-persist/es/persistStore";
 import storage from "redux-persist/lib/storage";
+import AuthSlice from "./slice/AuthSlice";
 
 const persistConfig = {
   key: "root",
   storage,
 };
 
-const reducers = combineReducers({});
+const placeholderReducer = (state = {}, action) => state;
+
+const reducers = combineReducers({
+  placeholder: placeholderReducer,
+  auth: AuthSlice,
+});
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
@@ -28,3 +36,5 @@ export const store = configureStore({
     }),
   reducer: persistedReducer,
 });
+
+export const persistor = persistStore(store);
